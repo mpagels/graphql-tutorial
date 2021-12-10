@@ -41,6 +41,8 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLString } },
       resolve(parent, args) {
         // code to get data from db / other source
+        const [book] = books.filter((book) => book.id === args.id)
+        return book
       },
     },
   },
